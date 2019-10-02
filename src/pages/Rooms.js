@@ -8,4 +8,4 @@ const Rooms = () => {
   )
 }
 
-export default Shishas
+export default Rooms
