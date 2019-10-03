@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Items from './data';
 
+// creation of the room's context
 const RoomContext = React.createContext();
-// 
 
 class RoomProvider extends Component {
   state = {
@@ -26,6 +26,8 @@ class RoomProvider extends Component {
     console.log(rooms);
   }
 
+  // formats the data into an easier format, where there is no need
+  // to go through every field and sub-field
   formatData(items) {
     let tempItems = items.map(item => {
       let id = item.sys.id;
