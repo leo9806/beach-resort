@@ -8,7 +8,6 @@ const Room = ({room}) => {
   // destructuring the room
   const{name, dang, images, price} = room;
 
-
   return (
     <article className="room">
       <div className="img-container">

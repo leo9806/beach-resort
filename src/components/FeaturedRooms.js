@@ -20,7 +20,7 @@ export default class FeaturedRooms extends Component {
     return (
       <section className="featured-rooms">
         <Title title="featured rooms" />
-        <div className="featured-room-center">
+        <div className="featured-rooms-center">
           {/* Load until the data is fetched */}
           {loading ? <Loading /> : rooms}
         </div>
