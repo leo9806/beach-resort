@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Items from './data';
+//import Items from './data';
 import Client from './Contentful';
 
 Client.getEntries({
@@ -28,22 +28,36 @@ class RoomProvider extends Component {
   
 
   // getData 
-  componentDidMount() {
-    let rooms = this.formatData(Items);
-    let featuredRooms = rooms.filter(room => room.featured === true);
+  getData = async () => {
+    try {
+      let response = await Client.getEntries({
+        content_type: "resortRoomExample",
+        order: "fields.name"
+      });
 
-    let maxPrice = Math.max(...rooms.map(item => item.price));
-    let maxSize = Math.max(...rooms.map(item => item.size));
-    this.setState({
-      rooms, 
-      featuredRooms, 
-      sortedRooms: rooms, 
-      loading: false,
-      price: maxPrice,
-      maxPrice,
-      maxSize
-    });
-    console.log(rooms);
+      // using the external data from contentful
+      let rooms = this.formatData(response.items);
+      let featuredRooms = rooms.filter(room => room.featured === true);
+
+      let maxPrice = Math.max(...rooms.map(item => item.price));
+      let maxSize = Math.max(...rooms.map(item => item.size));
+      this.setState({
+        rooms, 
+        featuredRooms, 
+        sortedRooms: rooms, 
+        loading: false,
+        price: maxPrice,
+        maxPrice,
+        maxSize
+      });
+      console.log(rooms);
+    } catch (error) {
+      console.log(error);
+    }
+  } 
+
+  componentDidMount() {
+    this.getData();
   }
 
   // formats the data into an easier format, where there is no need
