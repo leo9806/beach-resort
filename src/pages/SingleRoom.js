@@ -36,6 +36,7 @@ export default class SingleRoom extends Component {
       </div>;
     }
 
+    // destructuring of the room array
     const {name, description, capacity, size, price, extras,
        breakfast, pets, images} = room;
     
