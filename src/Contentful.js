@@ -4,6 +4,6 @@ require('dotenv').config();
 
 // accessing the contentful api
 export default createClient({
-  space: process.env.REACT_APP_API_SPACE,
-  accessToken: process.env.REACT_APP_ACCESS_TOKEN
+  space: "13jv0e7zcnb8",
+  accessToken: "yeSFBDTSj6TT4VDp56wi3nw-bBzt5kNwpZmDDxWjRHE"
 });
