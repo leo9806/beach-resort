@@ -32,7 +32,7 @@ class RoomProvider extends Component {
     try {
       let response = await Client.getEntries({
         content_type: "resortRoomExample",
-        order: "fields.name"
+        order: "fields.capacity"
       });
 
       // using the external data from contentful
